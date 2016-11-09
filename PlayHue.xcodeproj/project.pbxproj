@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					6E90E6571DD346480016C838 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = VGKE7KP8GF;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -258,7 +259,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VGKE7KP8GF;
 				INFOPLIST_FILE = PlayHue/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sg.com.singaporepower.PlayHue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -270,7 +273,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VGKE7KP8GF;
 				INFOPLIST_FILE = PlayHue/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sg.com.singaporepower.PlayHue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
