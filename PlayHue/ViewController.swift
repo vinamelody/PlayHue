@@ -6,6 +6,7 @@
 //  Copyright © 2016 Vina Rianti. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -13,7 +14,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var image: UIImageView!
     
     @IBAction func capture(_ sender: UIButton) {
-        
+        changeColor()
+    }
+    
+    func changeColor() {
         let imagePicker: UIImagePickerController = UIImagePickerController()
         imagePicker.delegate = self
         
@@ -33,7 +37,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.cameraDevice = .rear
         imagePicker.modalPresentationStyle = .overCurrentContext
         present(imagePicker, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -45,6 +48,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let averageColor = UIImage.areaAverage(pickedImage)
             print(averageColor)
             self.view.backgroundColor = averageColor()
+            
+            let hueColor = averageColor()
+            let array = hueColor.XYColor()
+            
+            // Send request to Bulb to change color
+            
+            let url = "http://10.10.43.119/api/zoG5NHui7WTIgaJQUkEDl51Rl1xTqYHhyy8wtKVV/lights/2/state"
+            let data: [String: Any] = [
+                "on": true,
+                "xy": [array[0], array[1]]
+            ]
+            
+           
+//            Alamofire.request(url, parameters: data, method: .put).responseJSON { response in
+//                print(response)
+//            }
+            
+            Alamofire.request(url, method: .put, parameters: data, encoding: JSONEncoding.default).responseJSON(completionHandler: {response in
+                
+                print(response)
+            })
+            
         }
         
         
@@ -65,6 +90,72 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
 
+}
+
+extension UIColor {
+    
+    var redValue: CGFloat? {
+        return self.cgColor.components?[0]
+    }
+    
+    var greenValue: CGFloat? {
+        return self.cgColor.components?[1]
+    }
+    
+    var blueValue: CGFloat? {
+        return self.cgColor.components?[2]
+    }
+    
+    var alphaValue: CGFloat? {
+        return self.cgColor.components?[3]
+    }
+    
+    func XYColor() -> Array<Double> {
+        
+        var normalizedToOne: [Double] = []
+        
+        normalizedToOne.append(Double(self.redValue!))
+        normalizedToOne.append(Double(self.greenValue!))
+        normalizedToOne.append(Double(self.blueValue!))
+        
+        var red: Float
+        var green: Float
+        var blue: Float
+        
+        // Make red more vivid
+        if (normalizedToOne[0] > 0.04045) {
+            red = pow((Float(normalizedToOne[0]) + 0.055) / (1.0 + 0.055), 2.4)
+        } else {
+            red = Float(normalizedToOne[0]) / 12.92
+        }
+        
+        // Make green more vivid
+        if (normalizedToOne[0] > 0.04045) {
+            green = pow((Float(normalizedToOne[1]) + 0.055) / (1.0 + 0.055), 2.4)
+        } else {
+            green = Float(normalizedToOne[1]) / 12.92
+        }
+        
+        // Make blue more vivid
+        if (normalizedToOne[0] > 0.04045) {
+            blue = pow((Float(normalizedToOne[2]) + 0.055) / (1.0 + 0.055), 2.4)
+        } else {
+            blue = Float(normalizedToOne[2]) / 12.92
+        }
+        
+        let xValue = Double(red * 0.649926 + green * 0.103455 + blue * 0.197109)
+        let yValue = Double(red * 0.234327 + green * 0.743075 + blue * 0.022598)
+        let zValue = Double(red * 0.0000000 + green * 0.053077 + blue * 1.035763)
+        
+        let x = xValue / (xValue + yValue + zValue)
+        let y = yValue / (xValue + yValue + zValue)
+        
+        var array: [Double] = []
+        array.append(x)
+        array.append(y)
+        
+        return array
+    }
 }
 
 extension UIImage {

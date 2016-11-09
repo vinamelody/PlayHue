@@ -12,9 +12,12 @@
 		6E90E6611DD346480016C838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E90E65F1DD346480016C838 /* Main.storyboard */; };
 		6E90E6631DD346480016C838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E90E6621DD346480016C838 /* Assets.xcassets */; };
 		6E90E6661DD346480016C838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E90E6641DD346480016C838 /* LaunchScreen.storyboard */; };
+		7416E41E60254412EF53E2B1 /* Pods_PlayHue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCCFDEACCEF197001B95351 /* Pods_PlayHue.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FCCFDEACCEF197001B95351 /* Pods_PlayHue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayHue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57561A1AC0E0B554871F5C8C /* Pods-PlayHue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayHue.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayHue/Pods-PlayHue.release.xcconfig"; sourceTree = "<group>"; };
 		6E90E6581DD346480016C838 /* PlayHue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayHue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E90E65B1DD346480016C838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E90E65D1DD346480016C838 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		6E90E6621DD346480016C838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E90E6651DD346480016C838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E90E6671DD346480016C838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A859BC1D9C69DA6D6CE0F953 /* Pods-PlayHue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayHue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayHue/Pods-PlayHue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7416E41E60254412EF53E2B1 /* Pods_PlayHue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				6E90E65A1DD346480016C838 /* PlayHue */,
 				6E90E6591DD346480016C838 /* Products */,
+				8A54255BB487FF9AB1AE2D13 /* Pods */,
+				AA839BA37F2B94693D32D3C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = PlayHue;
 			sourceTree = "<group>";
 		};
+		8A54255BB487FF9AB1AE2D13 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A859BC1D9C69DA6D6CE0F953 /* Pods-PlayHue.debug.xcconfig */,
+				57561A1AC0E0B554871F5C8C /* Pods-PlayHue.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA839BA37F2B94693D32D3C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FCCFDEACCEF197001B95351 /* Pods_PlayHue.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E90E66A1DD346480016C838 /* Build configuration list for PBXNativeTarget "PlayHue" */;
 			buildPhases = (
+				C20152C9BC9707A15AEC1D67 /* [CP] Check Pods Manifest.lock */,
 				6E90E6541DD346480016C838 /* Sources */,
 				6E90E6551DD346480016C838 /* Frameworks */,
 				6E90E6561DD346480016C838 /* Resources */,
+				B4EEAF90B085921174978464 /* [CP] Embed Pods Frameworks */,
+				A006F3CAACB4A011C92E3E69 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A006F3CAACB4A011C92E3E69 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlayHue/Pods-PlayHue-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4EEAF90B085921174978464 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlayHue/Pods-PlayHue-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C20152C9BC9707A15AEC1D67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6E90E6541DD346480016C838 /* Sources */ = {
@@ -257,6 +332,7 @@
 		};
 		6E90E66B1DD346480016C838 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A859BC1D9C69DA6D6CE0F953 /* Pods-PlayHue.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VGKE7KP8GF;
@@ -271,6 +347,7 @@
 		};
 		6E90E66C1DD346480016C838 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57561A1AC0E0B554871F5C8C /* Pods-PlayHue.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VGKE7KP8GF;
