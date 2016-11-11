@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         changeColor()
     }
     
+    // Idea by Yeo Kheng Meng
     func changeColor() {
         let imagePicker: UIImagePickerController = UIImagePickerController()
         imagePicker.delegate = self
