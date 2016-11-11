@@ -60,22 +60,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 "xy": [array[0], array[1]]
             ]
             
-           
-//            Alamofire.request(url, parameters: data, method: .put).responseJSON { response in
-//                print(response)
-//            }
-            
             Alamofire.request(url, method: .put, parameters: data, encoding: JSONEncoding.default).responseJSON(completionHandler: {response in
                 
                 print(response)
             })
             
         }
-        
-        
-        
-//        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//        let imageData = UIImageJPEGRepresentation(image, 0.8)
     }
     
     
@@ -179,7 +169,12 @@ extension UIImage {
         context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: kCIFormatRGBA8, colorSpace: CGColorSpaceCreateDeviceRGB())
         
         // Compute result.
-        let result = UIColor(red: CGFloat(bitmap[0]) / 255.0, green: CGFloat(bitmap[1]) / 255.0, blue: CGFloat(bitmap[2]) / 255.0, alpha: CGFloat(bitmap[3]) / 255.0)
+        let red = CGFloat(bitmap[0]) / 255.0
+        let green = CGFloat(bitmap[1]) / 255.0
+        let blue = CGFloat(bitmap[2]) / 255.0
+        let alpha = CGFloat(bitmap[3]) / 255.0
+        
+        let result = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         return result
     }
     
